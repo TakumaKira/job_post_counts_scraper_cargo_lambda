@@ -14,6 +14,14 @@ Before examing this project, you need to setup your terminal to be able to run `
 cargo lambda watch
 ```
 
+When you scrape for about 10 targets, it will take some time and hot reload will highly likely terminate the process and your test will fail. In such case, you can run the following command to test the app:
+
+```bash
+cargo lambda watch --ignore-changes
+```
+
+This command prevents hot reload from terminating the process. Notice that you need to run `cargo lambda watch` again to apply changes.
+
 From another terminal, run the following command to test the app:
 
 ```bash
