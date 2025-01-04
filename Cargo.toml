@@ -15,8 +15,16 @@ edition = "2021"
 # and it will keep the alphabetic ordering for you.
 
 [dependencies]
+anyhow = "1.0.95"
 aws_lambda_events = { version = "0.15.1", default-features = false, features = ["eventbridge"] }
+chrono = "0.4.39"
+dotenvy = "0.15.7"
 
 lambda_runtime = "0.13.0"
+reqwest = "0.12.12"
+scraper = "0.22.0"
+serde = "1.0.217"
+sqlx = { version = "0.8.2", features = ["postgres", "runtime-tokio", "tls-rustls", "time", "chrono"] }
 tokio = { version = "1", features = ["macros"] }
+url = "2.5.0"
 
