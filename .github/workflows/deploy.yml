@@ -2,7 +2,7 @@ name: Deploy Lambda
 
 on:
   push:
-    branches: [ master, feature/initial-build ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
