@@ -38,3 +38,11 @@ cargo lambda invoke --data-file fixtures/example-eventbridge-schedule.json
 
 The request data file is basically a copy from [the AWS official fixture](https://github.com/awslabs/aws-lambda-rust-runtime/blob/main/lambda-events/src/fixtures/example-apigw-request.json).
 You can test another API Gateway request by editing the file or copying this file and modify it.
+
+For local development only, you can also trigger the app without consuming the API credits with the following command:
+
+```bash
+cargo lambda invoke --data-file fixtures/example-eventbridge-schedule_dryrun.json
+```
+
+Notice this command uses the mock scrape results in `sample_scrape_results/` directory and it won't be available in deployed AWS Lambda. Therefore, you can use the content of `example-eventbridge-schedule.json` as the test payload but cannot the one of `example-eventbridge-schedule_dryrun.json`.
