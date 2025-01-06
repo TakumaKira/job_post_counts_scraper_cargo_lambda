@@ -19,3 +19,12 @@ pub struct Target {
     pub job_title: String,
     pub job_location: String,
 }
+
+#[derive(Deserialize, Debug)]
+pub struct DbSecrets {
+    pub username: String,
+    pub password: String,
+    pub host: String,
+    pub port: i32,
+    pub dbname: String,
+}

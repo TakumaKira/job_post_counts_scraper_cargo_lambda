@@ -23,7 +23,9 @@ impl GlassdoorScrapeResultAnalyzer {
     fn retrieve_page_title(&self, html: &str) -> Result<String, Box<dyn std::error::Error>> {
         let document = Html::parse_document(html);
         let title_selector = Selector::parse("title").unwrap();
-        let title_element = document.select(&title_selector).next().unwrap();
+        let title_element = document.select(&title_selector)
+            .next()
+            .ok_or("No title element found in HTML")?;
         let title = title_element.text().collect::<String>();
         Ok(title)
     }
