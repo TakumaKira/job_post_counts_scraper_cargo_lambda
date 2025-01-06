@@ -7,11 +7,14 @@ Before examing this project, you need to setup your terminal to be able to run `
 
 1. Install [Rust](https://www.rust-lang.org/tools/install)
 2. Install [Cargo Lambda](https://www.cargo-lambda.info/guide/getting-started.html)
-3. Prepare .env file with the following variables:
-    - SCRAPE_SERVICE_ENDPOINT_URL, which is the endpoint URL of the scrape service (this app is currently designed to work only with [scrapeops.io API](https://proxy.scrapeops.io/v1/)) For local development, include it in the .env file. For AWS Lambda, include it in the Lambda environment variable.
-    - SCRAPE_SERVICE_API_KEY, which is the API key of the scrape service. For local development, include it in the .env file. For AWS Lambda, include it in the Lambda environment variable.
-    - (For local development) DATABASE_URL, which is the connection string to your database.
-    - (For AWS Lambda) AWS_DB_SECRETS_NAME, which is the name of the secret in AWS Secrets Manager. The secret should contain username, password, host, port, dbname.
+3. (For local development) Prepare .env file with the following variables:
+    - SCRAPE_SERVICE_ENDPOINT_URL, which is the endpoint URL of the scrape service (this app is currently designed to work only with [scrapeops.io API](https://proxy.scrapeops.io/v1/))
+    - SCRAPE_SERVICE_API_KEY, which is the API key of the scrape service.
+    - DATABASE_URL, which is the connection string to your database.
+4. (For AWS Lambda) Include the following environment variables in the Lambda function:
+    - SCRAPE_SERVICE_ENDPOINT_URL, which is the endpoint URL of the scrape service (this app is currently designed to work only with [scrapeops.io API](https://proxy.scrapeops.io/v1/))
+    - AWS_API_KEY_SECRETS_NAME, which is the name of the secret in AWS Secrets Manager. The secret should contain SCRAPE_OPS_API_KEY, which is the API key of the scrape service.
+    - AWS_DB_SECRETS_NAME, which is the name of the secret in AWS Secrets Manager. The secret should contain username, password, host, port, dbname.
 
 ## Run this app
 
