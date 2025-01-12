@@ -5,11 +5,7 @@ use percent_encoding::{utf8_percent_encode, NON_ALPHANUMERIC};
 use crate::aws_secrets_manager::get_secret::get_secret;
 use crate::db::models::DbSecrets;
 
-pub async fn establish_connection() -> PgPool {
-    // Check if running locally
-    let is_local = env::var("LOCAL")
-        .is_ok();
-    
+pub async fn establish_connection(is_local: bool) -> PgPool {
     let database_url = if is_local {
         use dotenvy::dotenv;
         dotenv()
