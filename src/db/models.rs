@@ -24,7 +24,4 @@ pub struct Target {
 pub struct DbSecrets {
     pub username: String,
     pub password: String,
-    pub host: String,
-    pub port: i32,
-    pub dbname: String,
 }

@@ -22,6 +22,7 @@ chrono = "0.4.39"
 dotenvy = "0.15.7"
 
 lambda_runtime = "0.13.0"
+percent-encoding = "2.3.1"
 reqwest = { version = "0.12.12", default-features = false, features = ["rustls-tls"] }
 scraper = "0.22.0"
 serde = "1.0.217"
