@@ -46,3 +46,18 @@ cargo lambda invoke --data-file fixtures/example-eventbridge-schedule_dryrun.jso
 ```
 
 Notice this command uses the mock scrape results in `sample_scrape_results/` directory and it won't be available in deployed AWS Lambda. Therefore, you can use the content of `example-eventbridge-schedule.json` as the test payload but cannot the one of `example-eventbridge-schedule_dryrun.json`.
+
+## Deploy this app
+
+### Things you need to deploy this app to AWS
+
+- Your function needs to have the following environment variables.
+    - AWS_DB_SECRETS_NAME: Secret name on Secret Manager which contains `username` and `password` of your database.
+    - DB_HOST: Your database's endpoint
+    - DB_NAME: Your database's name
+    - DB_PORT: Your database's port(highly likely `5432` as this app uses PostgreSQL)
+    - AWS_API_KEY_SECRETS_NAME: Secret name on Secret Manager which contains `SCRAPE_OPS_API_KEY` of your account.
+    - SCRAPE_SERVICE_ENDPOINT_URL: `https://proxy.scrapeops.io/v1/` (This might change in the future)
+- Your function have access to the following:
+    - Your database(e.g. in the same VPC if your database don't have public endpoint for the sake of security)
+    - AWS's Secret Manager service(e.g. VPC endpoint or internet access)
